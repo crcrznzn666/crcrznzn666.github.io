@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="微分公式 常数函数$$\frac{d}{dx}(C) &#x3D; 0 \quad (C为常数)$$  幂函数$$\frac{d}{dx}(x^n) &#x3D; nx^{n-1} \quad (n为实数)$$  指数函数$$\frac{d}{dx}(e^x) &#x3D; e^x, \quad \frac{d}{dx}(a^x) &#x3D; a^x \ln a \quad (a &gt; 0且">
+  <meta name="description" content="微分公式  常数函数 $$ \frac{d}{dx}(C) &#x3D; 0 \quad (C为常数) $$ 幂函数 $$ \frac{d}{dx}(x^n) &#x3D; nx^{n-1} \quad (n为实数) $$ 指数函数 $$ \frac{d}{dx}(e^x) &#x3D; e^x, \quad \frac{d}{dx}(a^x) &#x3D; a^x \ln a \quad (a &gt; 0且">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一元函数微分学">
 <meta property="og:url" content="http://example.com/calculus/%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/">
 <meta property="og:site_name" content="cr的知识库">
-<meta property="og:description" content="微分公式 常数函数$$\frac{d}{dx}(C) &#x3D; 0 \quad (C为常数)$$  幂函数$$\frac{d}{dx}(x^n) &#x3D; nx^{n-1} \quad (n为实数)$$  指数函数$$\frac{d}{dx}(e^x) &#x3D; e^x, \quad \frac{d}{dx}(a^x) &#x3D; a^x \ln a \quad (a &gt; 0且">
+<meta property="og:description" content="微分公式  常数函数 $$ \frac{d}{dx}(C) &#x3D; 0 \quad (C为常数) $$ 幂函数 $$ \frac{d}{dx}(x^n) &#x3D; nx^{n-1} \quad (n为实数) $$ 指数函数 $$ \frac{d}{dx}(e^x) &#x3D; e^x, \quad \frac{d}{dx}(a^x) &#x3D; a^x \ln a \quad (a &gt; 0且">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-10T09:56:06.000Z">
 <meta property="article:modified_time" content="2025-07-10T10:09:39.739Z">
@@ -258,49 +258,185 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="微分公式"><a href="#微分公式" class="headerlink" title="微分公式"></a>微分公式</h2><ol>
-<li><p><strong>常数函数</strong><br>$$<br>\frac{d}{dx}(C) &#x3D; 0 \quad (C为常数)<br>$$</p>
-</li>
-<li><p><strong>幂函数</strong><br>$$<br>\frac{d}{dx}(x^n) &#x3D; nx^{n-1} \quad (n为实数)<br>$$</p>
-</li>
-<li><p><strong>指数函数</strong><br>$$<br>\frac{d}{dx}(e^x) &#x3D; e^x, \quad \frac{d}{dx}(a^x) &#x3D; a^x \ln a \quad (a &gt; 0且a \neq 1)<br>$$</p>
-</li>
-<li><p><strong>对数函数</strong><br>$$<br>\frac{d}{dx}(\ln x) &#x3D; \frac{1}{x}, \quad \frac{d}{dx}(\log_a x) &#x3D; \frac{1}{x \ln a} \quad (a &gt; 0且a \neq 1)<br>$$</p>
-</li>
-<li><p><strong>三角函数</strong><br>$$<br>\begin{align*}<br>&amp;\frac{d}{dx}(\sin x) &#x3D; \cos x, \quad \frac{d}{dx}(\cos x) &#x3D; -\sin x, \<br>&amp;\frac{d}{dx}(\tan x) &#x3D; \sec^2 x, \quad \frac{d}{dx}(\cot x) &#x3D; -\csc^2 x, \<br>&amp;\frac{d}{dx}(\sec x) &#x3D; \sec x \tan x, \quad \frac{d}{dx}(\csc x) &#x3D; -\csc x \cot x<br>\end{align*}<br>$$</p>
-</li>
-<li><p><strong>反三角函数</strong><br>$$<br>\begin{align*}<br>&amp;\frac{d}{dx}(\arcsin x) &#x3D; \frac{1}{\sqrt{1 - x^2}}, \quad \frac{d}{dx}(\arccos x) &#x3D; -\frac{1}{\sqrt{1 - x^2}}, \<br>&amp;\frac{d}{dx}(\arctan x) &#x3D; \frac{1}{1 + x^2}, \quad \frac{d}{dx}(\text{arccot } x) &#x3D; -\frac{1}{1 + x^2}<br>\end{align*}<br>$$</p>
-</li>
-<li><p><strong>双曲函数</strong><br>$$<br>\frac{d}{dx}(\sinh x) &#x3D; \cosh x, \quad \frac{d}{dx}(\cosh x) &#x3D; \sinh x<br>$$</p>
-</li>
+        <h2 id="微分公式">微分公式</h2>
+<ol type="1">
+<li><p><strong>常数函数</strong><br />
+<span class="math display">$$
+\frac{d}{dx}(C) = 0 \quad (C为常数)
+$$</span></p></li>
+<li><p><strong>幂函数</strong><br />
+<span class="math display">$$
+\frac{d}{dx}(x^n) = nx^{n-1} \quad (n为实数)
+$$</span></p></li>
+<li><p><strong>指数函数</strong><br />
+<span class="math display">$$
+\frac{d}{dx}(e^x) = e^x, \quad \frac{d}{dx}(a^x) = a^x \ln a \quad (a
+&gt; 0且a \neq 1)
+$$</span></p></li>
+<li><p><strong>对数函数</strong><br />
+<span class="math display">$$
+\frac{d}{dx}(\ln x) = \frac{1}{x}, \quad \frac{d}{dx}(\log_a x) =
+\frac{1}{x \ln a} \quad (a &gt; 0且a \neq 1)
+$$</span></p></li>
+<li><p><strong>三角函数</strong><br />
+<span class="math display">$$
+\begin{align*}
+&amp;\frac{d}{dx}(\sin x) = \cos x, \quad \frac{d}{dx}(\cos x) = -\sin
+x, \\
+&amp;\frac{d}{dx}(\tan x) = \sec^2 x, \quad \frac{d}{dx}(\cot x) =
+-\csc^2 x, \\
+&amp;\frac{d}{dx}(\sec x) = \sec x \tan x, \quad \frac{d}{dx}(\csc x) =
+-\csc x \cot x
+\end{align*}
+$$</span></p></li>
+<li><p><strong>反三角函数</strong><br />
+<span class="math display">$$
+\begin{align*}
+&amp;\frac{d}{dx}(\arcsin x) = \frac{1}{\sqrt{1 - x^2}}, \quad
+\frac{d}{dx}(\arccos x) = -\frac{1}{\sqrt{1 - x^2}}, \\
+&amp;\frac{d}{dx}(\arctan x) = \frac{1}{1 + x^2}, \quad
+\frac{d}{dx}(\text{arccot } x) = -\frac{1}{1 + x^2}
+\end{align*}
+$$</span></p></li>
+<li><p><strong>双曲函数</strong><br />
+<span class="math display">$$
+\frac{d}{dx}(\sinh x) = \cosh x, \quad \frac{d}{dx}(\cosh x) = \sinh x
+$$</span></p></li>
 </ol>
-<h2 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h2><ol>
-<li><p><strong>n阶导数表示</strong>  </p>
+<h2 id="运算法则">运算法则</h2>
+<ol type="1">
+<li><strong>n阶导数表示</strong>
 <ul>
-<li>函数 $f(x)$ 的n阶导数记作：$\frac{d^n f(x)}{dx^n}$ 或 $f^{(n)}(x)$  </li>
-<li>例：二阶导数 $\frac{d^2 f(x)}{dx^2}$ 或 $f’’(x)$</li>
-</ul>
+<li>函数 <span class="math inline"><em>f</em>(<em>x</em>)</span>
+的n阶导数记作：<span class="math inline">$\frac{d^n f(x)}{dx^n}$</span>
+或 <span
+class="math inline"><em>f</em><sup>(<em>n</em>)</sup>(<em>x</em>)</span><br />
 </li>
-<li><p><strong>常见函数的n阶导数</strong>  </p>
+<li>例：二阶导数 <span class="math inline">$\frac{d^2
+f(x)}{dx^2}$</span> 或 <span
+class="math inline"><em>f</em><sup>″</sup>(<em>x</em>)</span></li>
+</ul></li>
+<li><strong>常见函数的n阶导数</strong>
 <ul>
-<li><strong>幂函数</strong>：$(x^a)^{(n)} &#x3D; a(a-1)\cdots(a-n+1)x^{a-n}$（当 $a &gt; n$ 时）  </li>
-<li><strong>指数函数</strong>：$(e^x)^{(n)} &#x3D; e^x$，$(a^x)^{(n)} &#x3D; a^x (\ln a)^n$  </li>
-<li><strong>正弦函数</strong>：$(\sin x)^{(n)} &#x3D; \sin\left(x + \frac{n\pi}{2}\right)$  </li>
-<li><strong>余弦函数</strong>：$(\cos x)^{(n)} &#x3D; \cos\left(x + \frac{n\pi}{2}\right)$  </li>
-<li><strong>对数函数</strong>：$(\ln x)^{(n)} &#x3D; (-1)^{n-1}\frac{(n-1)!}{x^n}$</li>
-</ul>
+<li><strong>幂函数</strong>：<span
+class="math inline">(<em>x</em><sup><em>a</em></sup>)<sup>(<em>n</em>)</sup> = <em>a</em>(<em>a</em> − 1)⋯(<em>a</em> − <em>n</em> + 1)<em>x</em><sup><em>a</em> − <em>n</em></sup></span>（当
+<span class="math inline"><em>a</em> &gt; <em>n</em></span> 时）<br />
 </li>
+<li><strong>指数函数</strong>：<span
+class="math inline">(<em>e</em><sup><em>x</em></sup>)<sup>(<em>n</em>)</sup> = <em>e</em><sup><em>x</em></sup></span>，<span
+class="math inline">(<em>a</em><sup><em>x</em></sup>)<sup>(<em>n</em>)</sup> = <em>a</em><sup><em>x</em></sup>(ln <em>a</em>)<sup><em>n</em></sup></span><br />
+</li>
+<li><strong>正弦函数</strong>：<span class="math inline">$(\sin x)^{(n)}
+= \sin\left(x + \frac{n\pi}{2}\right)$</span><br />
+</li>
+<li><strong>余弦函数</strong>：<span class="math inline">$(\cos x)^{(n)}
+= \cos\left(x + \frac{n\pi}{2}\right)$</span><br />
+</li>
+<li><strong>对数函数</strong>：<span class="math inline">$(\ln x)^{(n)}
+= (-1)^{n-1}\frac{(n-1)!}{x^n}$</span></li>
+</ul></li>
 </ol>
-<h2 id="泰勒展开"><a href="#泰勒展开" class="headerlink" title="泰勒展开"></a>泰勒展开</h2><h2 id="1-指数函数：-e-x"><a href="#1-指数函数：-e-x" class="headerlink" title="1. 指数函数：$e^x$"></a><strong>1. 指数函数：$e^x$</strong></h2><p>$$<br>\begin{align*}<br>e^x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{x^n}{n!} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots + \frac{x^n}{n!} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="2-正弦函数：-sin-x"><a href="#2-正弦函数：-sin-x" class="headerlink" title="2. 正弦函数：$\sin x$"></a><strong>2. 正弦函数：$\sin x$</strong></h2><p>$$<br>\begin{align*}<br>\sin x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots + \frac{(-1)^n x^{2n+1}}{(2n+1)!} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="3-余弦函数：-cos-x"><a href="#3-余弦函数：-cos-x" class="headerlink" title="3. 余弦函数：$\cos x$"></a><strong>3. 余弦函数：$\cos x$</strong></h2><p>$$<br>\begin{align*}<br>\cos x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n}{(2n)!} x^{2n} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots + \frac{(-1)^n x^{2n}}{(2n)!} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="4-自然对数：-ln-1-x"><a href="#4-自然对数：-ln-1-x" class="headerlink" title="4. 自然对数：$\ln(1+x)$"></a><strong>4. 自然对数：$\ln(1+x)$</strong></h2><p>$$<br>\begin{align*}<br>\ln(1+x) &amp;&#x3D; \sum_{n&#x3D;1}^{\infty} \frac{(-1)^{n-1}}{n} x^n \quad (-1 &lt; x \leq 1) \<br>&amp;&#x3D; x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots + \frac{(-1)^{n-1} x^n}{n} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="5-幂函数：-1-x-alpha"><a href="#5-幂函数：-1-x-alpha" class="headerlink" title="5. 幂函数：$(1+x)^\alpha$"></a><strong>5. 幂函数：$(1+x)^\alpha$</strong></h2><p>$$<br>\begin{align*}<br>(1+x)^\alpha &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \binom{\alpha}{n} x^n \quad (|x| &lt; 1) \<br>&amp;&#x3D; 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!} x^2 + \frac{\alpha(\alpha-1)(\alpha-2)}{3!} x^3 + \cdots<br>\end{align*}<br>$$<br>（其中 $\binom{\alpha}{n} &#x3D; \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}$）</p>
-<h2 id="6-反正切函数：-arctan-x"><a href="#6-反正切函数：-arctan-x" class="headerlink" title="6. 反正切函数：$\arctan x$"></a><strong>6. 反正切函数：$\arctan x$</strong></h2><p>$$<br>\begin{align*}<br>\arctan x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n}{2n+1} x^{2n+1} \quad (|x| \leq 1) \<br>&amp;&#x3D; x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots + \frac{(-1)^n x^{2n+1}}{2n+1} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="7-指数函数：-e-x-2"><a href="#7-指数函数：-e-x-2" class="headerlink" title="7. 指数函数：$e^{-x^2}$"></a><strong>7. 指数函数：$e^{-x^2}$</strong></h2><p>$$<br>\begin{align*}<br>e^{-x^2} &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n}{n!} x^{2n} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; 1 - x^2 + \frac{x^4}{2!} - \frac{x^6}{3!} + \cdots + \frac{(-1)^n x^{2n}}{n!} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="8-双曲函数"><a href="#8-双曲函数" class="headerlink" title="8. 双曲函数"></a><strong>8. 双曲函数</strong></h2><h3 id="8-1-双曲正弦：-sinh-x"><a href="#8-1-双曲正弦：-sinh-x" class="headerlink" title="8.1 双曲正弦：$\sinh x$"></a><strong>8.1 双曲正弦：$\sinh x$</strong></h3><p>$$<br>\begin{align*}<br>\sinh x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{x^{2n+1}}{(2n+1)!} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots<br>\end{align*}<br>$$</p>
-<h3 id="8-2-双曲余弦：-cosh-x"><a href="#8-2-双曲余弦：-cosh-x" class="headerlink" title="8.2 双曲余弦：$\cosh x$"></a><strong>8.2 双曲余弦：$\cosh x$</strong></h3><p>$$<br>\begin{align*}<br>\cosh x &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{x^{2n}}{(2n)!} \quad (x \in \mathbb{R}) \<br>&amp;&#x3D; 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots<br>\end{align*}<br>$$</p>
-<h2 id="9-对数函数：-ln-left-frac-1-x-1-x-right"><a href="#9-对数函数：-ln-left-frac-1-x-1-x-right" class="headerlink" title="9. 对数函数：$\ln\left(\frac{1+x}{1-x}\right)$"></a><strong>9. 对数函数：$\ln\left(\frac{1+x}{1-x}\right)$</strong></h2><p>$$<br>\begin{align*}<br>\ln\left(\frac{1+x}{1-x}\right) &amp;&#x3D; \sum_{n&#x3D;0}^{\infty} \frac{2x^{2n+1}}{2n+1} \quad (|x| &lt; 1) \<br>&amp;&#x3D; 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7} + \cdots\right)<br>\end{align*}<br>$$</p>
+<h2 id="泰勒展开">泰勒展开</h2>
+<h2 id="指数函数ex"><strong>1. 指数函数：<span
+class="math inline"><em>e</em><sup><em>x</em></sup></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+e^x &amp;= \sum_{n=0}^{\infty} \frac{x^n}{n!} \quad (x \in \mathbb{R})
+\\
+&amp;= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots
++ \frac{x^n}{n!} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="正弦函数sin-x"><strong>2. 正弦函数：<span
+class="math inline">sin <em>x</em></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+\sin x &amp;= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} \quad
+(x \in \mathbb{R}) \\
+&amp;= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots +
+\frac{(-1)^n x^{2n+1}}{(2n+1)!} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="余弦函数cos-x"><strong>3. 余弦函数：<span
+class="math inline">cos <em>x</em></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+\cos x &amp;= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} x^{2n} \quad (x
+\in \mathbb{R}) \\
+&amp;= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots +
+\frac{(-1)^n x^{2n}}{(2n)!} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="自然对数ln1x"><strong>4. 自然对数：<span
+class="math inline">ln (1 + <em>x</em>)</span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+\ln(1+x) &amp;= \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} x^n \quad (-1
+&lt; x \leq 1) \\
+&amp;= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots +
+\frac{(-1)^{n-1} x^n}{n} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="幂函数1xalpha"><strong>5. 幂函数：<span
+class="math inline">(1 + <em>x</em>)<sup><em>α</em></sup></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+(1+x)^\alpha &amp;= \sum_{n=0}^{\infty} \binom{\alpha}{n} x^n \quad (|x|
+&lt; 1) \\
+&amp;= 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!} x^2 +
+\frac{\alpha(\alpha-1)(\alpha-2)}{3!} x^3 + \cdots
+\end{align*}
+$$</span> （其中 <span class="math inline">$\binom{\alpha}{n} =
+\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}$</span>）</p>
+<h2 id="反正切函数arctan-x"><strong>6. 反正切函数：<span
+class="math inline">arctan <em>x</em></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+\arctan x &amp;= \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} x^{2n+1} \quad
+(|x| \leq 1) \\
+&amp;= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots +
+\frac{(-1)^n x^{2n+1}}{2n+1} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="指数函数e-x2"><strong>7. 指数函数：<span
+class="math inline"><em>e</em><sup>−<em>x</em><sup>2</sup></sup></span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+e^{-x^2} &amp;= \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} x^{2n} \quad (x
+\in \mathbb{R}) \\
+&amp;= 1 - x^2 + \frac{x^4}{2!} - \frac{x^6}{3!} + \cdots + \frac{(-1)^n
+x^{2n}}{n!} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="双曲函数"><strong>8. 双曲函数</strong></h2>
+<h3 id="双曲正弦sinh-x"><strong>8.1 双曲正弦：<span
+class="math inline">sinh <em>x</em></span></strong></h3>
+<p><span class="math display">$$
+\begin{align*}
+\sinh x &amp;= \sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!} \quad (x \in
+\mathbb{R}) \\
+&amp;= x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots
+\end{align*}
+$$</span></p>
+<h3 id="双曲余弦cosh-x"><strong>8.2 双曲余弦：<span
+class="math inline">cosh <em>x</em></span></strong></h3>
+<p><span class="math display">$$
+\begin{align*}
+\cosh x &amp;= \sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!} \quad (x \in
+\mathbb{R}) \\
+&amp;= 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots
+\end{align*}
+$$</span></p>
+<h2 id="对数函数lnleftfrac1x1-xright"><strong>9. 对数函数：<span
+class="math inline">$\ln\left(\frac{1+x}{1-x}\right)$</span></strong></h2>
+<p><span class="math display">$$
+\begin{align*}
+\ln\left(\frac{1+x}{1-x}\right) &amp;= \sum_{n=0}^{\infty}
+\frac{2x^{2n+1}}{2n+1} \quad (|x| &lt; 1) \\
+&amp;= 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7} +
+\cdots\right)
+\end{align*}
+$$</span></p>
 
     </div>
 
@@ -378,7 +514,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">微分公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">运算法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80"><span class="nav-number">3.</span> <span class="nav-text">泰勒展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0%EF%BC%9A-e-x"><span class="nav-number">4.</span> <span class="nav-text">1. 指数函数：$e^x$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0%EF%BC%9A-sin-x"><span class="nav-number">5.</span> <span class="nav-text">2. 正弦函数：$\sin x$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%99%E5%BC%A6%E5%87%BD%E6%95%B0%EF%BC%9A-cos-x"><span class="nav-number">6.</span> <span class="nav-text">3. 余弦函数：$\cos x$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%87%AA%E7%84%B6%E5%AF%B9%E6%95%B0%EF%BC%9A-ln-1-x"><span class="nav-number">7.</span> <span class="nav-text">4. 自然对数：$\ln(1+x)$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%B9%82%E5%87%BD%E6%95%B0%EF%BC%9A-1-x-alpha"><span class="nav-number">8.</span> <span class="nav-text">5. 幂函数：$(1+x)^\alpha$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%EF%BC%9A-arctan-x"><span class="nav-number">9.</span> <span class="nav-text">6. 反正切函数：$\arctan x$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0%EF%BC%9A-e-x-2"><span class="nav-number">10.</span> <span class="nav-text">7. 指数函数：$e^{-x^2}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">8. 双曲函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E5%8F%8C%E6%9B%B2%E6%AD%A3%E5%BC%A6%EF%BC%9A-sinh-x"><span class="nav-number">11.1.</span> <span class="nav-text">8.1 双曲正弦：$\sinh x$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E5%8F%8C%E6%9B%B2%E4%BD%99%E5%BC%A6%EF%BC%9A-cosh-x"><span class="nav-number">11.2.</span> <span class="nav-text">8.2 双曲余弦：$\cosh x$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%EF%BC%9A-ln-left-frac-1-x-1-x-right"><span class="nav-number">12.</span> <span class="nav-text">9. 对数函数：$\ln\left(\frac{1+x}{1-x}\right)$</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">微分公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">运算法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80"><span class="nav-number">3.</span> <span class="nav-text">泰勒展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0ex"><span class="nav-number">4.</span> <span class="nav-text">1. 指数函数：ex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0sin-x"><span class="nav-number">5.</span> <span class="nav-text">2. 正弦函数：sin x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E5%87%BD%E6%95%B0cos-x"><span class="nav-number">6.</span> <span class="nav-text">3. 余弦函数：cos x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E5%AF%B9%E6%95%B0ln1x"><span class="nav-number">7.</span> <span class="nav-text">4. 自然对数：ln (1 + x)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%82%E5%87%BD%E6%95%B01xalpha"><span class="nav-number">8.</span> <span class="nav-text">5. 幂函数：(1 + x)α</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0arctan-x"><span class="nav-number">9.</span> <span class="nav-text">6. 反正切函数：arctan x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0e-x2"><span class="nav-number">10.</span> <span class="nav-text">7. 指数函数：e−x2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">8. 双曲函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%9B%B2%E6%AD%A3%E5%BC%A6sinh-x"><span class="nav-number">11.1.</span> <span class="nav-text">8.1 双曲正弦：sinh x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%9B%B2%E4%BD%99%E5%BC%A6cosh-x"><span class="nav-number">11.2.</span> <span class="nav-text">8.2 双曲余弦：cosh x</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0lnleftfrac1x1-xright"><span class="nav-number">12.</span> <span class="nav-text">9. 对数函数：$\ln\left(\frac{1+x}{1-x}\right)$</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -481,6 +617,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
