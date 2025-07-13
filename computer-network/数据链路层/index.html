@@ -28,7 +28,7 @@
 <meta property="og:description" content="数据链路层">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-11T02:33:18.000Z">
-<meta property="article:modified_time" content="2025-07-13T12:01:57.873Z">
+<meta property="article:modified_time" content="2025-07-13T12:09:15.221Z">
 <meta property="article:author" content="cr">
 <meta name="twitter:card" content="summary">
 
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-13 20:01:57" itemprop="dateModified" datetime="2025-07-13T20:01:57+08:00">2025-07-13</time>
+                <time title="修改时间：2025-07-13 20:09:15" itemprop="dateModified" datetime="2025-07-13T20:09:15+08:00">2025-07-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,110 +264,148 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>数据链路层 <span id="more"></span> ## 定义 1. 组帧的三种方法 1. 字符计数法 -
-在每个帧首部使用一个计数字段来表示该帧所包含的字节数 2. 字节填充法 -
-SOH与EOT表示帧的开始与结束，若帧中也包含SOH和EOT的话，需要在SOH与EOT之前填充转义字符ECS(不是这三个字母本身)
-3. 零比特填充法 -
-使用特定字符01111110表示帧的开始与结束<font color = #0000ff>，为了避免帧中出现标志字符，每遇上五个连续1就在后面插入一个0，，接收方收到后删除即可)</font>
-2. 检错编码 1. 奇偶校验码 -
-n-1的数据位与1位校验位。通过改变校验位的值使整体1的个数位奇数/偶数。(只能检验奇数位发生错误。且错误无法定位)
-2. 循环冗余码 -
-约定一个除数，将发送数据转化为被除数，将余数附加在被除数后一起发送 3.
-<font color = #00ff00>海明码</font> 1.
-设n为有效位，k为校验位，则满足<span
-class="math display"><em>n</em> + <em>k</em> ≤ 2<sup><em>k</em></sup> − 1</span>
-2. 校验位<span
-class="math inline"><em>p</em><sub><em>i</em></sub> = 2<sup><em>i</em> − 1</sup></span>，其余各位为信息位依次排布
-3.
-<font color = #0000ff>每个数据位由多个检验位进行检验</font>，且被检验数据位的海明位号等于检验该数据位的各检验位的海明码位数之和
-4.
-反过来根据看校验位，由该校验位检验的数据位所有位求异或得到本校验位的值
-5.
-，诶刚和检验组分别利用检验位和参与形成该检验位的信息为共同异或形成K个检验方程，
+        <p>数据链路层 <span id="more"></span></p>
+<h2 id="定义">定义</h2>
+<ol type="1">
+<li>组帧的三种方法
+<ol type="1">
+<li>字符计数法 -
+在每个帧首部使用一个计数字段来表示该帧所包含的字节数</li>
+<li>字节填充法 -
+SOH与EOT表示帧的开始与结束，若帧中也包含SOH和EOT的话，需要在SOH与EOT之前填充转义字符ECS(不是这三个字母本身)</li>
+<li>零比特填充法 -
+使用特定字符01111110表示帧的开始与结束<font color = #0000ff>，为了避免帧中出现标志字符，每遇上五个连续1就在后面插入一个0，，接收方收到后删除即可)</font></li>
+</ol></li>
+<li>检错编码
+<ol type="1">
+<li>奇偶校验码 -
+n-1的数据位与1位校验位。通过改变校验位的值使整体1的个数位奇数/偶数。(只能检验奇数位发生错误。且错误无法定位)</li>
+<li>循环冗余码 -
+约定一个除数，将发送数据转化为被除数，将余数附加在被除数后一起发送</li>
+</ol></li>
+<li><font color = #00ff00>海明码</font>
+<ol type="1">
+<li>设n为有效位，k为校验位，则满足<span
+class="math display"><em>n</em> + <em>k</em> ≤ 2<sup><em>k</em></sup> − 1</span></li>
+<li>校验位<span
+class="math inline"><em>p</em><sub><em>i</em></sub> = 2<sup><em>i</em> − 1</sup></span>，其余各位为信息位依次排布</li>
+<li><font color = #0000ff>每个数据位由多个检验位进行检验</font>，且被检验数据位的海明位号等于检验该数据位的各检验位的海明码位数之和</li>
+<li>反过来根据看校验位，由该校验位检验的数据位所有位求异或得到本校验位的值</li>
+<li>，诶刚和检验组分别利用检验位和参与形成该检验位的信息为共同异或形成K个检验方程，
 <font color = #ff0000>将k个方程结果组合成总结过<span
 class="math inline"><em>S</em><sub><em>k</em></sub></span>…<span
 class="math inline"><em>S</em><sub>2</sub></span><span
 class="math inline"><em>S</em><sub>1</sub></span>.若<span
-class="math inline"><em>S</em><sub><em>n</em></sub></span>的值不为0，则传输过程中第n位出错</font>
-4. 流量控制(设发送窗口长度为<span
+class="math inline"><em>S</em><sub><em>n</em></sub></span>的值不为0，则传输过程中第n位出错</font></li>
+</ol></li>
+<li>流量控制(设发送窗口长度为<span
 class="math inline"><em>W</em><sub><em>T</em></sub></span>,接收窗口长度为<span
-class="math inline"><em>W</em><sub><em>R</em></sub></span>) 1.
-停止等待协议(Stop-and-Wait) - <span
+class="math inline"><em>W</em><sub><em>R</em></sub></span>)
+<ol type="1">
+<li>停止等待协议(Stop-and-Wait) - <span
 class="math inline"><em>W</em><sub><em>T</em></sub></span>=1，<span
-class="math inline"><em>W</em><sub><em>R</em></sub></span>=1 2.
-后退N帧协议(Go-Back-N) - <span
+class="math inline"><em>W</em><sub><em>R</em></sub></span>=1</li>
+<li>后退N帧协议(Go-Back-N) - <span
 class="math inline"><em>W</em><sub><em>T</em></sub> &gt; 1</span>，<span
 class="math inline"><em>W</em><sub><em>R</em></sub> = 1</span>
 <font color = #ff0000>发送窗口需满足<span
-class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> ≤ 2<sup><em>n</em></sup> − 1</span></font>
-3. 选择重传协议(Selective Repeat) - <span
+class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> ≤ 2<sup><em>n</em></sup> − 1</span></font></li>
+<li>选择重传协议(Selective Repeat) - <span
 class="math inline"><em>W</em><sub><em>T</em></sub> &gt; 1</span>，<span
 class="math inline"><em>W</em><sub><em>R</em></sub> &gt; 1</span><font color = #ff0000>发送窗口接收窗口需满足<span
-class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> + <em>W</em><sub><em>R</em></sub> ≤ 2<sup><em>n</em></sup></span></font>,且接收窗口小于发送窗口
-5. 信道划分介质访问的四种形式
+class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> + <em>W</em><sub><em>R</em></sub> ≤ 2<sup><em>n</em></sup></span></font>,且接收窗口小于发送窗口</li>
+</ol></li>
+<li>信道划分介质访问的四种形式
 -时分复用、频分复用、波分复用、码分复用<br />
-其中码分复用(CDM)是利用不同站的正交积 6.
-<font color = #ff0000>随机访问介质控制协议</font> 1. 纯ALOHA协议 -
-所有站点自由发送，遇到冲突后随机等待时间后发送 2. 时隙ALOHA协议 -
-时间被划分为等长的时隙，每个站点在每个时隙开始发送，若有冲突则等待随机时间后发送
-3. CSMA协议 1. 1-坚持CSMA -
-持续监听信道，若信道空闲则立即发送，若信道忙则继续监听直到空闲后发送 2.
-非坚持CSMA -
-先监听信道，若信道空闲则立即发送，若信道忙则等待随机时间后发送 3.
-p-坚持CSNA -
-同1为持续监听，但是检测到空闲时以p概率发送数据，以1-p推迟到下一个时隙<font color= #0000ff>监听</font>
-4. CSMA/CD协议 - 先听先发，边听边发。冲突停发，随机重发 5. CSMA/CA协议 -
-1.
-信道空闲时，等待时间<font color = #0000ff>DIFS</font>后，发送整个数据帧
-2.
-否则从0-竞争窗口值中选择一个，检测到信道忙则退避计数器不变，反之退避计数器-1
-3. 计数器减为0时候，发送整个帧 4.
-发送站若收到确认，则在发送第二帧时由步骤二开始执行；反之再次由步骤二重传该帧，直到收到确认或多次重传后失败
-7. 轮询访问：令牌传递协议 -
-空令牌在空信道上循环，当有站点要发送数据时，修改令牌标志位并附加上数据位，然后传递下去直到循环到目标站点
-7. 局域网 -
-在一个较小地理范围内，将各种设备通过<font color= #0000ff>双绞线、同轴电缆</font>连接起来组成的网络，能够进行广播和多播
-8. mac地址的格式 -
-12个十六进制数表示(<font color= #0000ff>路由器若连接到两个网络上，则需要两个适配器与两个MAC地址</font>)
-9. 以太网的mac组合帧 - <img
+其中码分复用(CDM)是利用不同站的正交积</li>
+<li><font color = #ff0000>随机访问介质控制协议</font>
+<ol type="1">
+<li>纯ALOHA协议 - 所有站点自由发送，遇到冲突后随机等待时间后发送</li>
+<li>时隙ALOHA协议 -
+时间被划分为等长的时隙，每个站点在每个时隙开始发送，若有冲突则等待随机时间后发送</li>
+<li>CSMA协议
+<ol type="1">
+<li>1-坚持CSMA -
+持续监听信道，若信道空闲则立即发送，若信道忙则继续监听直到空闲后发送</li>
+<li>非坚持CSMA -
+先监听信道，若信道空闲则立即发送，若信道忙则等待随机时间后发送</li>
+<li>p-坚持CSNA -
+同1为持续监听，但是检测到空闲时以p概率发送数据，以1-p推迟到下一个时隙<font color= #0000ff>监听</font></li>
+</ol></li>
+<li>CSMA/CD协议 - 先听先发，边听边发。冲突停发，随机重发</li>
+<li>CSMA/CA协议 -
+<ol type="1">
+<li>信道空闲时，等待时间<font color = #0000ff>DIFS</font>后，发送整个数据帧</li>
+<li>否则从0-竞争窗口值中选择一个，检测到信道忙则退避计数器不变，反之退避计数器-1</li>
+<li>计数器减为0时候，发送整个帧</li>
+<li>发送站若收到确认，则在发送第二帧时由步骤二开始执行；反之再次由步骤二重传该帧，直到收到确认或多次重传后失败</li>
+</ol></li>
+</ol></li>
+<li>轮询访问：令牌传递协议 -
+空令牌在空信道上循环，当有站点要发送数据时，修改令牌标志位并附加上数据位，然后传递下去直到循环到目标站点</li>
+<li>局域网 -
+在一个较小地理范围内，将各种设备通过<font color= #0000ff>双绞线、同轴电缆</font>连接起来组成的网络，能够进行广播和多播</li>
+<li>mac地址的格式 -
+12个十六进制数表示(<font color= #0000ff>路由器若连接到两个网络上，则需要两个适配器与两个MAC地址</font>)</li>
+<li>以太网的mac组合帧 - <img
 src="https://tse2-mm.cn.bing.net/th/id/OIP-C.fGUr-fUJKX7UHE8RoGX1mgHaDA?w=341&amp;h=142&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.5&amp;pid=1.7&amp;rm=3"
-title="以太网mac帧示意图" alt="图片替代文本" /> 10.
-无线局域网的mac组合帧 - <img
+title="以太网mac帧示意图" alt="图片替代文本" /></li>
+<li>无线局域网的mac组合帧 - <img
 src="https://img-blog.csdnimg.cn/89cdf2d2763248c786a6707b4343071d.png"
 title="无线局域网mac帧示意图" alt="图片替代文本" /><br />
 其中去往ap和来往ap的不同取值代表前三个地址的不同。<br />
 01为接收地址 = 目的地址；发送地址 = AP地址；源地址<br />
-10为接收地址 = AP地址；发送地址 = 源地址；目的地址 11.
-通过虚拟局域网VLAN，可以将一个较大的局域网划分成较小的VLAN，每个VLAN是一个较小的<font color =#0000ff>广播域</font>
-11. PPP(点对点协议)相关知识 1. 三个组成部分 =
-链路控制协议LCP、网络控制协议NCP、将IP数据封装到串行链路的方法 2.
-PPP帧格式如图<br />
+10为接收地址 = AP地址；发送地址 = 源地址；目的地址</li>
+<li>通过虚拟局域网VLAN，可以将一个较大的局域网划分成较小的VLAN，每个VLAN是一个较小的<font color =#0000ff>广播域</font></li>
+<li>PPP(点对点协议)相关知识
+<ol type="1">
+<li>三个组成部分 =
+链路控制协议LCP、网络控制协议NCP、将IP数据封装到串行链路的方法</li>
+<li>PPP帧格式如图<br />
 <img
 src="https://img-blog.csdnimg.cn/20210402214422767.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VuZ2luZWVyMA==,size_16,color_FFFFFF,t_70"
 title="PPP帧" alt="图片替代文本" /><br />
-2. PPP协议状态如图<br />
+</li>
+<li>PPP协议状态如图<br />
 <img
 src="https://www.codeprj.com/image/aHR0cHM6Ly9pbWcyMDIwLmNuYmxvZ3MuY29tL2Jsb2cvMTc3NDMxMC8yMDIwMDcvMTc3NDMxMC0yMDIwMDcyODE3NDE1MjU2NC0xNDc0MjkyMjYyLnBuZw==.png"
-title="PPP帧" alt="图片替代文本" /> 4. 特点 1.
-不使用序号和确认机制，只保证无差错检验(CRC)，因此<font color = #0000ff>不可靠</font>
-2. 全双工，不支持多点 3. 可在同一个PPP下运行不同的网络层协议 4.
-所有PPP帧的长度都是字节 12.
-<font color =#0000ff>交换机工作在数据链路层，因此集线器既不隔离广播域，又不隔离冲突域。交换机不隔离广播域但是能隔离冲突域</font>
-## 公式 1. 信道利用率 1. 停止等待协议 <span
+title="PPP帧" alt="图片替代文本" /></li>
+<li>特点
+<ol type="1">
+<li>不使用序号和确认机制，只保证无差错检验(CRC)，因此<font color = #0000ff>不可靠</font></li>
+<li>全双工，不支持多点</li>
+<li>可在同一个PPP下运行不同的网络层协议</li>
+<li>所有PPP帧的长度都是字节</li>
+</ol></li>
+</ol></li>
+<li><font color =#0000ff>交换机工作在数据链路层，因此集线器既不隔离广播域，又不隔离冲突域。交换机不隔离广播域但是能隔离冲突域</font>
+## 公式</li>
+<li>信道利用率
+<ol type="1">
+<li>停止等待协议 <span
 class="math display">$$cU=\frac{T_D}{T_D+T_A+RTT}$$</span>
-(分母意义分别是，发送的传输时延，往返的传播时延，接收方确认分组的传输时延)
-2. 连续ARQ协议 <span
-class="math display">$$cU=\frac{nT_D}{T_D+T_A+RTT}$$</span> 2.
-信道平均数据传输速率 = 信道利用率 X 信道带宽(最大数据传输速率)
-=发送周期内发送的数据量、发送周期 3. CSMA/CD协议相关计算公式 1.
-<font color = #ff0000>最短帧长 =
-总线传播时延x数据传输速率</font>，因此对于小于最短帧长的帧，需要在末尾补充
-2. 截断二进制指数退避算法 <img
+(分母意义分别是，发送的传输时延，往返的传播时延，接收方确认分组的传输时延)</li>
+<li>连续ARQ协议 <span
+class="math display">$$cU=\frac{nT_D}{T_D+T_A+RTT}$$</span></li>
+</ol></li>
+<li>信道平均数据传输速率 = 信道利用率 X 信道带宽(最大数据传输速率)
+=发送周期内发送的数据量、发送周期</li>
+<li>CSMA/CD协议相关计算公式
+<ol type="1">
+<li><font color = #ff0000>最短帧长 =
+总线传播时延x数据传输速率</font>，因此对于小于最短帧长的帧，需要在末尾补充</li>
+<li>截断二进制指数退避算法 <img
 src="https://img-blog.csdnimg.cn/f5f8ee9be8ca47d594ee75d9f63a826c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAaXVkaW9fY29vbA==,size_20,color_FFFFFF,t_70,g_se,x_16"
 title="截断二进制指数退避算法" alt="图片替代文本" /><br />
-4. CSMA/CA协议中信道预约的方法相关计算公式 1. RTS帧发送 - t1=DIFS+RTS 2.
-CTS帧响应 - t2=SIFS+CTS(CTS向所有站广播，表明信道被占用) 3.
-数据帧与ACK传输 = t3=SIFS+DATA+SIFS+ACK</p>
+</li>
+</ol></li>
+<li>CSMA/CA协议中信道预约的方法相关计算公式
+<ol type="1">
+<li>RTS帧发送 - t1=DIFS+RTS</li>
+<li>CTS帧响应 - t2=SIFS+CTS(CTS向所有站广播，表明信道被占用)</li>
+<li>数据帧与ACK传输 = t3=SIFS+DATA+SIFS+ACK</li>
+</ol></li>
+</ol>
 
     </div>
 
@@ -448,6 +486,7 @@ CTS帧响应 - t2=SIFS+CTS(CTS向所有站广播，表明信道被占用) 3.
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

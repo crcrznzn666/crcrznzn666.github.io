@@ -28,7 +28,7 @@
 <meta property="og:description" content="网络层">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-12T04:44:06.000Z">
-<meta property="article:modified_time" content="2025-07-13T12:03:54.613Z">
+<meta property="article:modified_time" content="2025-07-13T12:08:06.430Z">
 <meta property="article:author" content="cr">
 <meta name="twitter:card" content="summary">
 
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-13 20:03:54" itemprop="dateModified" datetime="2025-07-13T20:03:54+08:00">2025-07-13</time>
+                <time title="修改时间：2025-07-13 20:08:06" itemprop="dateModified" datetime="2025-07-13T20:08:06+08:00">2025-07-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,62 +265,132 @@
 
       
         <p>网络层<br />
-<span id="more"></span> ## 定义<br />
-1. IPV4 1. 分组格式<br />
+<span id="more"></span></p>
+<h2 id="定义">定义</h2>
+<ol type="1">
+<li><p>IPV4</p>
+<ol type="1">
+<li>分组格式<br />
 <img
 src="https://img-blog.csdnimg.cn/c362792b709e45f5a0c495c4ac0a0e2c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA56eD5aS05LuU5LuU,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"
-title="ipv4分组格式" alt="1" /> 2. 分组中部分记忆点 1. 总长度 -
-首部和数据之和的长度(<font color = #0000ff>单位是字节</font>) 2. 标志 -
-最低位为MF,为1表示后面还有分片；中间一位是DF，为0表示允许分片 3. MTU -
-最大传送单元，即数据链路层数据帧能承载的最大数据量。因此IP数据报需要分片
-4. <font color = #ff0000>IPv4地址</font> 1. 由网络号和主机号决定 2.
-特殊IP 1. 主机号全为0 - 本网络本身 2. 主机号全为1 - 本网络广播地址 3.
-127.xx.xx.xx - 环规自检地址 4. 32位全为0 - 本网络上本主机 5. 32位全为1 -
-整个TCP/IP网络的广播地址 5. 网络地址转换(NAT) -
-通过将专有网络地址转化为公用地址 6. 三类私有IP 1. 10.0.0.0 -
-10.255.255.255 2. 172.16.0.0 - 172.31.255.255 3. 192.168.0.0 -
-192.168.255.255 2. NAT路由器和普通路由器的区别是 -
-NAT路由器在转发IP分组时，必须要更换IP地址 3. 子网划分与路由聚合 -
-已经会了，但仍需注意<font color = #0000ff>子网中主机号全为0或1不能被指派，代表网络地址和广播地址</font>，且采用CIDR编址时，分组查找应采用<font color = #0000ff>最长前缀和匹配</font>
-4. ARP协议 - 由ip地址解析到mac地址 (请求是广播，响应是单播) 5. DHCP协议
-- 动态主机配置协议 (四个过程：广播发现、广播提供、广播提供、广播确认) 6.
-ICMP协议 - 网络控制报文协议 7. IPv6 1. 分组格式<br />
+title="ipv4分组格式" alt="1" /></li>
+<li>分组中部分记忆点
+<ol type="1">
+<li>总长度 -
+首部和数据之和的长度(<font color = #0000ff>单位是字节</font>)</li>
+<li>标志 -
+最低位为MF,为1表示后面还有分片；中间一位是DF，为0表示允许分片</li>
+</ol></li>
+<li>MTU -
+最大传送单元，即数据链路层数据帧能承载的最大数据量。因此IP数据报需要分片</li>
+<li><font color = #ff0000>IPv4地址</font>
+<ol type="1">
+<li>由网络号和主机号决定</li>
+<li>特殊IP
+<ol type="1">
+<li>主机号全为0 - 本网络本身</li>
+<li>主机号全为1 - 本网络广播地址</li>
+<li>127.xx.xx.xx - 环规自检地址</li>
+<li>32位全为0 - 本网络上本主机</li>
+<li>32位全为1 - 整个TCP/IP网络的广播地址</li>
+</ol></li>
+</ol></li>
+<li>网络地址转换(NAT) - 通过将专有网络地址转化为公用地址</li>
+<li>三类私有IP
+<ol type="1">
+<li>10.0.0.0 - 10.255.255.255</li>
+<li>172.16.0.0 - 172.31.255.255</li>
+<li>192.168.0.0 - 192.168.255.255</li>
+</ol></li>
+</ol></li>
+<li><p>NAT路由器和普通路由器的区别是 -
+NAT路由器在转发IP分组时，必须要更换IP地址</p></li>
+<li><p>子网划分与路由聚合 -
+已经会了，但仍需注意<font color = #0000ff>子网中主机号全为0或1不能被指派，代表网络地址和广播地址</font>，且采用CIDR编址时，分组查找应采用<font color = #0000ff>最长前缀和匹配</font></p></li>
+<li><p>ARP协议 - 由ip地址解析到mac地址 (请求是广播，响应是单播)</p></li>
+<li><p>DHCP协议 - 动态主机配置协议
+(四个过程：广播发现、广播提供、广播提供、广播确认)</p></li>
+<li><p>ICMP协议 - 网络控制报文协议</p></li>
+<li><p>IPv6</p>
+<ol type="1">
+<li>分组格式<br />
 <img
 src="https://img2023.cnblogs.com/blog/1680081/202309/1680081-20230927203749042-524072743.png"
-title="ipv6分组格式" alt="1" /> 8. IPv4向IPv6过渡、 1. 双栈协议 -
-一台设备同时拥有IPv4与IPv6两个协议栈 2. 隧道技术 -
-将整个IPv6数据报封装在IPv4数据报中 9.
-<font color = #ff0000>路由算法与路由协议</font> 1.
-距离-向量路由算法(核心是两点之间最短路径也包括路径上其他顶点间的最短路径)，维护以下路由信息
-1. x到每个直连节点的链路费用 2. 节点x到其他网络中的节点的链路费用 3.
-每个<font color = #0000ff>邻居</font>的距离向量 2.
-链路状态路由算法(核心是所有节点都知道整个网络的拓扑结构) 1.
-主动测试相邻节点状态 2. 定期将链路状态传播给所有节点 3.
-利用Dijistra算法计算出到达其他节点最短路径 3. 网关协议 -
-内部网关协议IGP(RIP与OSFP)和外部网关协议EGP(BGP-4) 10.
-<font color = #ff0000>路由协议</font> 1. 路由信息协议RIP 1.
-使用跳数衡量到达网络距离，每经过一个路由器距离加一 2.
-距离等同于16时<font color = #0000ff>认为不可达</font> 3. 发送整个路由表
-4. 好消息传的快，坏消息传的慢 2. 开放最短路径优先OSPF协议 1. 泛洪发送 2.
-发送与本路由器相邻的所有路由器的<font color = #0000ff>链路状态</font> 3.
-边界网关协议BGP 1. BGP是应用层的，基于TCP 2. 找到较好而不是最好的路由 3.
-管理员选择AS中一个路由器作为BGP发言人 1. 打开报文 -
-与相邻BGP发言人建立关系 2. 更新报文 -
-通知某一路由信息，列出要撤销的多条路由 3. 保活报文 -
-周期性验证邻站的连通性 4. 通知报文 - 发送检测到的错误 11. IP多播 1.
-源主机发送的单个分组可以抵达用一个组地址表示的若干目标主机 2.
-使用D类IP地址作为目的地址 3. 不提供可靠交付 4. 多播地址只能用于目的地址
-5. 多播数据不产生ICMP差错报文 6.
-需要用到网纪组管理协议IGMP及多播路由选择协议 7.
-多播路由实际是找到以源主机为根节点的多播转发树 12. 移动IP
-移动IP的过程可简要分为以下几个关键步骤：</p>
-<pre><code>1. **代理发现**：移动节点接入新网络时，通过接收代理通告消息（或主动发送代理请求），识别本地代理和外地代理，确定自身是否处于归属网络或外地网络。
-2.  **注册**：若处于外地网络，移动节点向归属代理发送注册请求，告知当前的转交地址（由外地代理分配或自身配置），完成注册后，归属代理会记录该映射关系。
-3.  **数据传输**：
-   - 对端节点向移动节点的归属地址发送数据，数据先到达归属代理。
-   - 归属代理将数据封装，通过隧道转发至移动节点的转交地址。
-   - 移动节点通过外地代理（或直接）接收数据，并可直接向对端节点发送响应。
-4.  **注销与切换**：移动节点返回归属网络或切换至新的外地网络时，向原归属代理或外地代理发送注销请求，更新位置信息以确保通信连续。</code></pre>
+title="ipv6分组格式" alt="1" /></li>
+</ol></li>
+<li><p>IPv4向IPv6过渡、</p>
+<ol type="1">
+<li>双栈协议 - 一台设备同时拥有IPv4与IPv6两个协议栈</li>
+<li>隧道技术 - 将整个IPv6数据报封装在IPv4数据报中</li>
+</ol></li>
+<li><p><font color = #ff0000>路由算法与路由协议</font></p>
+<ol type="1">
+<li>距离-向量路由算法(核心是两点之间最短路径也包括路径上其他顶点间的最短路径)，维护以下路由信息
+<ol type="1">
+<li>x到每个直连节点的链路费用</li>
+<li>节点x到其他网络中的节点的链路费用</li>
+<li>每个<font color = #0000ff>邻居</font>的距离向量</li>
+</ol></li>
+<li>链路状态路由算法(核心是所有节点都知道整个网络的拓扑结构)
+<ol type="1">
+<li>主动测试相邻节点状态</li>
+<li>定期将链路状态传播给所有节点</li>
+<li>利用Dijistra算法计算出到达其他节点最短路径</li>
+</ol></li>
+<li>网关协议 - 内部网关协议IGP(RIP与OSFP)和外部网关协议EGP(BGP-4)</li>
+</ol></li>
+<li><p><font color = #ff0000>路由协议</font></p>
+<ol type="1">
+<li>路由信息协议RIP
+<ol type="1">
+<li>使用跳数衡量到达网络距离，每经过一个路由器距离加一</li>
+<li>距离等同于16时<font color = #0000ff>认为不可达</font></li>
+<li>发送整个路由表</li>
+<li>好消息传的快，坏消息传的慢</li>
+</ol></li>
+<li>开放最短路径优先OSPF协议
+<ol type="1">
+<li>泛洪发送</li>
+<li>发送与本路由器相邻的所有路由器的<font color = #0000ff>链路状态</font></li>
+</ol></li>
+<li>边界网关协议BGP
+<ol type="1">
+<li>BGP是应用层的，基于TCP</li>
+<li>找到较好而不是最好的路由</li>
+<li>管理员选择AS中一个路由器作为BGP发言人
+<ol type="1">
+<li>打开报文 - 与相邻BGP发言人建立关系</li>
+<li>更新报文 - 通知某一路由信息，列出要撤销的多条路由</li>
+<li>保活报文 - 周期性验证邻站的连通性</li>
+<li>通知报文 - 发送检测到的错误</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>IP多播</p>
+<ol type="1">
+<li>源主机发送的单个分组可以抵达用一个组地址表示的若干目标主机</li>
+<li>使用D类IP地址作为目的地址</li>
+<li>不提供可靠交付</li>
+<li>多播地址只能用于目的地址</li>
+<li>多播数据不产生ICMP差错报文</li>
+<li>需要用到网纪组管理协议IGMP及多播路由选择协议</li>
+<li>多播路由实际是找到以源主机为根节点的多播转发树</li>
+</ol></li>
+<li><p>移动IP 移动IP的过程可简要分为以下几个关键步骤：</p>
+<ol type="1">
+<li><strong>代理发现</strong>：移动节点接入新网络时，通过接收代理通告消息（或主动发送代理请求），识别本地代理和外地代理，确定自身是否处于归属网络或外地网络。</li>
+<li><strong>注册</strong>：若处于外地网络，移动节点向归属代理发送注册请求，告知当前的转交地址（由外地代理分配或自身配置），完成注册后，归属代理会记录该映射关系。</li>
+<li><strong>数据传输</strong>：</li>
+</ol>
+<ul>
+<li>对端节点向移动节点的归属地址发送数据，数据先到达归属代理。</li>
+<li>归属代理将数据封装，通过隧道转发至移动节点的转交地址。</li>
+<li>移动节点通过外地代理（或直接）接收数据，并可直接向对端节点发送响应。</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>注销与切换</strong>：移动节点返回归属网络或切换至新的外地网络时，向原归属代理或外地代理发送注销请求，更新位置信息以确保通信连续。</li>
+</ol></li>
+</ol>
 <h2 id="混淆点">混淆点</h2>
 <ol type="1">
 <li>IPv4与IPv6的区别
@@ -412,7 +482,7 @@ title="ipv6分组格式" alt="1" /> 8. IPv4向IPv6过渡、 1. 双栈协议 -
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">混淆点</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">混淆点</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
