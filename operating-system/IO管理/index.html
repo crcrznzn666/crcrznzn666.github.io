@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="传输层">
+  <meta name="description" content="IO管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="传输层">
-<meta property="og:url" content="http://example.com/computer-network/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+<meta property="og:title" content="IO管理">
+<meta property="og:url" content="http://example.com/operating-system/IO%E7%AE%A1%E7%90%86/">
 <meta property="og:site_name" content="cr的知识库">
-<meta property="og:description" content="传输层">
+<meta property="og:description" content="IO管理">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-07-13T01:46:53.000Z">
-<meta property="article:modified_time" content="2025-07-13T12:09:39.754Z">
+<meta property="article:published_time" content="2025-07-21T02:04:02.000Z">
+<meta property="article:modified_time" content="2025-07-21T10:09:41.415Z">
 <meta property="article:author" content="cr">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/computer-network/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+<link rel="canonical" href="http://example.com/operating-system/IO%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>传输层 | cr的知识库</title>
+  <title>IO管理 | cr的知识库</title>
   
 
 
@@ -211,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/computer-network/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/operating-system/IO%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://ts1.tc.mm.bing.net/th/id/R-C.b871256906effa876a995532075c7fa7?rik=OJ1NonNJJzDeqA&riu=http%3a%2f%2fseogc.fp.ps.netease.com%2ffile%2f66cf26d211c07fb534b881c95y7fK41W05&ehk=FchZZaIR0%2bl594w3XT11zdxjrjbQiTPg0cBWQ4RDJJs%3d&risl=&pid=ImgRaw&r=0">
@@ -224,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          传输层
+          IO管理
         </h1>
 
         <div class="post-meta">
@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-13 09:46:53 / 修改时间：20:09:39" itemprop="dateCreated datePublished" datetime="2025-07-13T09:46:53+08:00">2025-07-13</time>
+              <time title="创建时间：2025-07-21 10:04:02 / 修改时间：18:09:41" itemprop="dateCreated datePublished" datetime="2025-07-21T10:04:02+08:00">2025-07-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,7 +243,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/computer-network/" itemprop="url" rel="index"><span itemprop="name">computer-network</span></a>
+                  <a href="/categories/operating-system/" itemprop="url" rel="index"><span itemprop="name">operating-system</span></a>
                 </span>
             </span>
 
@@ -258,72 +258,195 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>传输层 <span id="more"></span></p>
-<h2 id="定义">定义</h2>
+        <p>IO管理 <span id="more"></span></p>
+<h3 id="io管理综述">I/O管理综述</h3>
 <ol type="1">
-<li>传输层提供进程间的通信，即端到端的逻辑通信</li>
-<li>套接字 - 即ip地址:端口号</li>
-<li>端口号 - 16位，0-65535</li>
-<li>UDP
+<li>I/O管理的定义，以及各种分类</li>
+<li>I/O接口(又称设备控制器) 的定义与分类，以及各种功能</li>
+<li>I/O端口是指设备控制器中可被直接访问的寄存器，分为数据寄存器、状态寄存器和控制寄存器，编址方式分为独立编址和统一编址</li>
+<li><font color = purple>4种I/O控制方式</font>
 <ol type="1">
-<li>概述 -
-无连接，不可靠，面向数据报，可支持多对多，针对IP数据报增加了两个基本功能：复用和分用、以及差错检测</li>
-<li>UDP首部示意图<br />
-<img
-src="https://img-blog.csdnimg.cn/efdb6a6395a44eef927474d2eaa79bd5.png"
-title="UDP首部示意图" alt="1" />
-其中数据报的长度包括首部和数据，最小值为仅有首部时的8位</li>
-<li><font color = #0000ff>UDP检验</font>
+<li>程序直接控制方式(程序轮询方式)<br />
+CPU发出I/O指令后轮询测试设备状态，直到确认字已经放入设备控制器的数据寄存器中</li>
+<li>中断驱动方式<br />
+允许设备控制器在I/O操作完成时，向CPU发送中断信号，CPU收到中断信号后，暂停当前程序的执行，转去处理中断服务程序，中断服务程序执行完毕后，再返回原程序继续执行</li>
+<li>DMA方式(直接存储器存取)
+基本传输单位是块，传输中直接放入内存不经过CPU寄存器。由DMA控制器负责数据传输，<font color = blue>除了传输多个快的开始和结束，无需CPU干预</font></li>
+<li>通道控制
+相对DMA有更高的自由度，传输数据块大小和传输的内存位置由通道而不是CPU决定</li>
+</ol></li>
+<li><font color = purple>I/O软件层级结构由高到低</font>
 <ol type="1">
-<li>全0放入检验字段并添加伪首部</li>
-<li>将参与计算的所有数据（UDP 伪首部、UDP 首部和负载数据）以 16
-位为单位进行划分。如果数据总长度不是 16
-位的整数倍，则在末尾填充一个字节的 0，使其成为 16 位的整数倍。</li>
-<li>将划分好的 16
-位字依次相加，得到一个初始和。如果相加过程中出现溢出（即结果超过 16
-位），则将溢出的部分（高 16 位）加到结果的低 16 位上，这个过程称为
-“回卷”。</li>
-<li>重复上述计算直到得到16位的新数</li>
-<li>将最终得到的 16 位结果按位取反，得到的数值就是 UDP
-校验和，该值会被填入 UDP 首部的校验和字段中。</li>
-<li>接收端收到 UDP
-数据包后，会对包括校验和字段在内的整个数据包进行相同的计算。同样将数据以
-16 位为单位求和，并进行 “回卷” 操作，最终得到一个 16
-位的结果。如果该结果为全 1（即
-0xFFFF），则认为数据包在传输过程中没有发生错误，接收端会接受该数据包并继续处理数据；如果结果不是全
-1，则表明数据包可能出现了错误，接收端通常会丢弃这个数据包</li>
+<li>用户层软件 - 与I/O操作有关的库函数，大部分在内核小部分在用户层</li>
+<li><font color = blue>设备独立性软件</font> -
+用于实现用户程序与设备驱动器的统一接口、设备命名、设备保护以及设备的分配释放等，同时为设备管理和数据传送提供必要的存储空间(逻辑设备的概念，逻辑设备到物理设备的映射)</li>
+<li>设备驱动程序 -
+与硬件直接相关，负责具体实现系统对设备发出的操作指令<font color = green>(抽象指令转化为具体指令)</font>、驱动I/O设备工作的驱动程序，检查状态。同时也将设备控制器发来的信号传递给上层软件，从而为I/O内核子系统隐藏设备控制器之间的差异</li>
+<li>中断处理程序 -
+保存被中断进程的CPU环境，转入相应的中断处理程序中进行处理，完毕后恢复现场并返回被中断进程</li>
+<li>硬件</li>
+</ol></li>
+<li>阻塞I/O和非阻塞I/O的区别</li>
+</ol>
+<h3 id="设备独立性软件">设备独立性软件</h3>
+<ol type="1">
+<li>定义</li>
+<li>缓冲区 -
+缓和CPU和I/O设备间速度不匹配，减少对CPU的干预，提高CPU与I/O设备间的并行性<br />
+需要注意区分三个时间<font color = purple>设备将数据传送到缓冲区的时间T，操作系统将缓冲区数据传送到工作区时间M，CPU处理数据时间C。</font><font color = blue>下面所有计算都是基于一个定论，即缓冲区满后才能从缓冲区取出数据</font>
+<ol type="1">
+<li>单缓冲 - T与C可以并行，因此处理每块的平均时间是<span
+class="math inline"><em>M</em><em>a</em><em>x</em>(<em>T</em>, <em>C</em>) + <em>M</em></span></li>
+<li>双缓冲 - T与C和M可以并行因此处理每块的平均时间是$ Max(T,C+M)$</li>
+<li>循环缓冲</li>
+<li>缓冲池</li>
+</ol></li>
+<li>高速缓存与缓冲区的区分</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>高速缓存</th>
+<th>缓冲区</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相同点</td>
+<td>都介于高速设备和低速设备之间</td>
+<td>都介于高速设备和低速设备之间</td>
+</tr>
+<tr>
+<td>区别 - 存放数据</td>
+<td>存放的是低速设备上的某些数据的复制数据，即高速缓存上有的，低速设备上面必然有</td>
+<td>存放的是低速设备传递给高速设备的数据（或相反），而这些数据在低速设备（或高速设备）上却不一定有备份，这些数据再从缓冲区传送到高速设备（或低速设备）</td>
+</tr>
+<tr>
+<td>区别 - 目的</td>
+<td>高速缓存存放的是高速设备经常要访问的数据，若高速设备要访问的数据不在高速缓存中，则高速设备就需要访问低速设备</td>
+<td>高速设备和低速设备的通信都要经过缓冲区，高速设备永远不会直接去访问低速设备</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" type="1">
+<li>设备分配与回收
+<ol type="1">
+<li>概述与定义 -
+系统中存在多个通道，每个通道连接多个控制器，每个控制器连接多个物理设备</li>
+<li>设备分配的数据结构
+<ol type="1">
+<li>设备控制表DCT - 每个设备分配一张。表项为设备的各种属性</li>
+<li>控制器控制表COCT -</li>
+<li>通道控制表CHCT</li>
+<li>系统设备表SDT -
+整个系统唯一一张。存放连接到系统中所有物理设备的情况</li>
+</ol></li>
+<li>设备分配时考虑的因素
+<ol type="1">
+<li>固有属性 - 独占设备、共享设备和虚拟设备</li>
+<li>设备分配算法 - FCFS和最高优先级</li>
+<li>设备分配的安全性<br />
+安全分配(进程发出I/O请求后进入<font color = blue>阻塞态</font>)<br />
+不安全分配(I/O请求后继续运行，一个进程可同时操纵多个设备)</li>
+<li>设备分配步骤
+<ol type="1">
+<li>分配设备 - 查找SDT，从中找到该设备的DCT</li>
+<li>分配控制器 - 根据DCT找到COCT</li>
+<li>分配通道 - 根据COCT找到CHCT</li>
 </ol></li>
 </ol></li>
-<li>TCP
+<li>逻辑设备名到物理设备名的转化
 <ol type="1">
-<li>概述 -
-面向连接，可靠，全双工通信，面向字节流。只能有两个端点，即每条TCP连接只能是一对一的</li>
-<li>UDP首部示意图<br />
+<li>使用逻辑设备表LUT</li>
+<li>分配方式 - 整个系统使用一张LUT；或每个用户分配一张LUT</li>
+</ol></li>
+</ol></li>
+<li>SPOOLing技术(假脱机技术)
+<ol type="1">
+<li>定义 - 主要用于解决高速 CPU
+与低速外围设备（如打印机、扫描仪等）之间的速度不匹配问题，提高系统资源利用率和作业处理效率。<font color = blue>是一种空间换时间的方法</font><br />
 <img
-src="https://img-blog.csdnimg.cn/img_convert/edf6093e884ed3a5e5ac0aa6af80fbbf.png"
-title="TCP首部示意图" alt="1" /><br />
-其中序号字段表示本报文数据的第一个字节的序号，确认号表示期望收到下一个报文的第一个字节的序列号，数据偏移指的是TCP首部部分占多少个4B，故首部最大为60B</li>
-<li>三次握手与四次挥手 <img
-src="https://raw.githubusercontent.com/McXing/Pictures/master/%E6%8F%A1%E6%89%8B/%E6%8F%A1%E6%89%8B%E4%B8%89%E6%AC%A1.png"
-title="TCP首部示意图" alt="1" /> <img
-src="https://raw.githubusercontent.com/McXing/Pictures/master/%E6%8F%A1%E6%89%8B/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png"
-title="TCP首部示意图" alt="1" /></li>
-<li>重传 - 超时和冗余ACK</li>
-<li>流量控制 - 接收方滑动窗口协议</li>
-<li><font color = #0000ff>拥塞控制</font> <img
-src="https://img-blog.csdnimg.cn/9e380ce8d43f46fb98cee623dbbf8b52.png"
-title="拥塞避免示意图" alt="1" /></li>
+src="https://img-blog.csdnimg.cn/20200501190232544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hoaGh4eG4=,size_16,color_FFFFFF,t_70"
+title="SPOOLing技术示意图"
+alt="https://img-blog.csdnimg.cn/20200501190232544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hoaGh4eG4=,size_16,color_FFFFFF,t_70" /></li>
+<li>构成
+<ol type="1">
+<li>输入井与输出井</li>
+<li>输入缓冲区与输出缓冲区</li>
+<li>输入进程和输出进程</li>
+<li>井管理程序 -
+在磁盘缓冲区中位进程申请空闲盘块，将要打印的数据放入其中暂存；为用户申请空白的用户打印请求表，用户打印填入其中以后挂载<font color = green>假脱机文件队列上</font></li>
+</ol></li>
+<li>特点
+<ol type="1">
+<li>每个进程都觉得自己独占打印机，<font color = blue>实现了虚拟设备功能</font></li>
+<li>提高了I/O速度</li>
+<li>将独占设备改为共享设备(实际没给任何进程分配设备)</li>
+</ol></li>
+</ol></li>
+<li>设备驱动程序接口
+<ol type="1">
+<li>定义 -
+接收上层抽象I/O请求(read/write等)，转化为具体要求后发给设备控制器</li>
+<li>特点
+<ol type="1">
+<li>设备驱动程序与系统采用的I/O控制方式紧密相关，与硬件紧密相关</li>
+<li>目前很多设备驱动程序的基本部分固化在<font color = blue>ROM</font>中</li>
+<li>允许多次同时调用执行</li>
+</ol></li>
 </ol></li>
 </ol>
-<h2 id="混淆">混淆</h2>
+<h3 id="磁盘和固态硬盘">磁盘和固态硬盘</h3>
 <ol type="1">
-<li>常见端口号
+<li>组成 - 柱面号<em>盘面号</em>扇区号</li>
+<li>新磁盘安装操作系统的过程
 <ol type="1">
-<li>FTP21</li>
-<li>TELNET23</li>
-<li>SMTP25</li>
-<li>DNS53</li>
+<li>磁盘初始化 -
+将磁盘分为扇区以便磁盘控制器进行读写操作(<font color = purple>低级格式化或物理格式化</font>)</li>
+<li>分区 -
+将磁盘分为由一个或多个柱面组成的分区(eg:C、D盘)，将物理分区进行格式化(<font color = purple>高级格式化</font>)</li>
+<li>引导块 -
+启动初始化(自举)程序，初始化CPU、寄存器、设备控制器和内存等。<font color = blue>自举程序通常放在ROM中</font>。eg.windowws系统下有一个分区为引导分区，它包含操作系统和设备驱动程序。windows系统将引导代码存储在磁盘的第0号扇区，它被称为<font color = blue>主引导记录(MBR)</font></li>
+<li>坏块 - 对被损坏的块使用某种机制不去使用它</li>
 </ol></li>
+<li>磁盘的存取时间
+<ol type="1">
+<li>寻道时间<span
+class="math inline"><em>T</em><sub><em>s</em></sub> = <em>m</em> * <em>n</em> + <em>s</em></span>，即启动磁头臂的时间加上跨越n条刺刀的时间</li>
+<li>旋转延迟时间<span class="math inline">$T_r =
+\frac{1}{2r}$</span>，磁头定位到读写扇区的时间，其中r为磁盘的转速</li>
+<li>传输时间<span class="math inline">$T_t =
+\frac{b}{rN}$</span>，其中b为读写的字节数，r为磁盘的转速</li>
+</ol></li>
+<li><font color = red>磁盘调度算法</font>
+<ol type="1">
+<li>先来先服务算法FCFS - 如其名，顺着走</li>
+<li>最短寻道时间算法SSTF -
+每次选择调度的是与当前磁头最近的磁道(<font color = purple>容易造成饥饿</font>)</li>
+<li>扫描算法SCAN -
+先向一个方向扫描，直到扫描到<font color = green>最边缘磁道</font>，然后掉头反向扫描</li>
+<li>循环扫描算法C-SCAN -
+与SCAN类似，但是在扫描到最边缘磁道后，直接跳转到第一个磁道</li>
+<li>C-SCAN与C-LOCK -
+与上面两个类似，<font color = green>但是移动到最远端请求的磁道即可掉头</font>，而无需到达磁盘端点</li>
+</ol></li>
+<li>提高磁盘I/O速度的方案
+<ol type="1">
+<li>采用磁盘高速缓存</li>
+<li>调整磁盘请求顺序</li>
+<li>提前读</li>
+<li>延迟写</li>
+<li>优化物理块的分布</li>
+<li>虚拟盘</li>
+<li>采用磁盘阵列RAID</li>
+</ol></li>
+<li>固态硬盘 - 相关知识点见计算机组成相关章节</li>
 </ol>
 
     </div>
@@ -340,12 +463,12 @@ title="拥塞避免示意图" alt="1" /></li>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/computer-network/%E7%BD%91%E7%BB%9C%E5%B1%82/" rel="prev" title="网络层">
-      <i class="fa fa-chevron-left"></i> 网络层
+    <a href="/maos-thought/%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E9%9D%A9%E5%91%BD%E7%90%86%E8%AE%BA/" rel="prev" title="新民主主义革命理论">
+      <i class="fa fa-chevron-left"></i> 新民主主义革命理论
     </a></div>
       <div class="post-nav-item">
-    <a href="/computer-network/%E5%BA%94%E7%94%A8%E5%B1%82/" rel="next" title="应用层">
-      应用层 <i class="fa fa-chevron-right"></i>
+    <a href="/maos-thought/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%94%B9%E9%80%A0%E7%90%86%E8%AE%BA/" rel="next" title="社会主义改造理论">
+      社会主义改造理论 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -405,7 +528,7 @@ title="拥塞避免示意图" alt="1" /></li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86"><span class="nav-number">2.</span> <span class="nav-text">混淆</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#io%E7%AE%A1%E7%90%86%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">I&#x2F;O管理综述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E6%80%A7%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">设备独立性软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%92%8C%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98"><span class="nav-number">3.</span> <span class="nav-text">磁盘和固态硬盘</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
