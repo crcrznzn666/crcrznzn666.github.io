@@ -28,7 +28,7 @@
 <meta property="og:description" content="数据链路层">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-11T02:33:18.000Z">
-<meta property="article:modified_time" content="2025-07-25T15:28:00.746Z">
+<meta property="article:modified_time" content="2025-07-28T02:45:24.444Z">
 <meta property="article:author" content="cr">
 <meta name="twitter:card" content="summary">
 
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-25 23:28:00" itemprop="dateModified" datetime="2025-07-25T23:28:00+08:00">2025-07-25</time>
+                <time title="修改时间：2025-07-28 10:45:24" itemprop="dateModified" datetime="2025-07-28T10:45:24+08:00">2025-07-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,16 +266,22 @@
       
         <p>数据链路层 <span id="more"></span></p>
 <h2 id="定义">定义</h2>
+<h3 id="组帧">组帧</h3>
 <ol type="1">
-<li>组帧的三种方法
+<li>组帧的几种方法
 <ol type="1">
 <li>字符计数法 -
 在每个帧首部使用一个计数字段来表示该帧所包含的字节数</li>
 <li>字节填充法 -
 SOH与EOT表示帧的开始与结束，若帧中也包含SOH和EOT的话，需要在SOH与EOT之前填充转义字符ECS(不是这三个字母本身)</li>
 <li>零比特填充法 -
-使用特定字符01111110表示帧的开始与结束<font color = #0000ff>，为了避免帧中出现标志字符，每遇上五个连续1就在后面插入一个0，，接收方收到后删除即可)</font></li>
+使用特定字符01111110表示帧的开始与结束<font color = #0000ff>，为了避免帧中出现标志字符，每遇上五个连续1就在后面插入一个0，，接收方收到后删除即可</font></li>
+<li>违规编码法 -
+用不存在的电平界定帧的起始与终止，如曼彻斯特编码中的低-低与高-高</li>
 </ol></li>
+</ol>
+<h3 id="差错控制">差错控制</h3>
+<ol type="1">
 <li>检错编码
 <ol type="1">
 <li>奇偶校验码 -
@@ -298,6 +304,9 @@ class="math inline"><em>S</em><sub>2</sub></span><span
 class="math inline"><em>S</em><sub>1</sub></span>.若<span
 class="math inline"><em>S</em><sub><em>n</em></sub></span>的值不为0，则传输过程中第n位出错</font></li>
 </ol></li>
+</ol>
+<h3 id="流量控制">流量控制</h3>
+<ol type="1">
 <li>流量控制(设发送窗口长度为<span
 class="math inline"><em>W</em><sub><em>T</em></sub></span>,接收窗口长度为<span
 class="math inline"><em>W</em><sub><em>R</em></sub></span>)
@@ -315,6 +324,9 @@ class="math inline"><em>W</em><sub><em>T</em></sub> &gt; 1</span>，<span
 class="math inline"><em>W</em><sub><em>R</em></sub> &gt; 1</span><font color = #ff0000>发送窗口接收窗口需满足<span
 class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> + <em>W</em><sub><em>R</em></sub> ≤ 2<sup><em>n</em></sup></span></font>,且接收窗口小于发送窗口</li>
 </ol></li>
+</ol>
+<h3 id="介质访问控制">介质访问控制</h3>
+<ol type="1">
 <li>信道划分介质访问的四种形式
 -时分复用、频分复用、波分复用、码分复用<br />
 其中码分复用(CDM)是利用不同站的正交积</li>
@@ -343,27 +355,55 @@ class="math inline">1 &lt; <em>W</em><sub><em>T</em></sub> + <em>W</em><
 </ol></li>
 <li>轮询访问：令牌传递协议 -
 空令牌在空信道上循环，当有站点要发送数据时，修改令牌标志位并附加上数据位，然后传递下去直到循环到目标站点</li>
-<li>局域网 -
-在一个较小地理范围内，将各种设备通过<font color= #0000ff>双绞线、同轴电缆</font>连接起来组成的网络，能够进行广播和多播</li>
-<li>mac地址的格式 -
-12个十六进制数表示(<font color= #0000ff>路由器若连接到两个网络上，则需要两个适配器与两个MAC地址</font>)</li>
-<li>以太网的mac组合帧 - <img
+</ol>
+<h3 id="局域网">局域网</h3>
+<ol type="1">
+<li><p>局域网 -
+在一个较小地理范围内，将各种设备通过<font color= #0000ff>双绞线、同轴电缆</font>连接起来组成的网络，能够进行广播和多播，各站为<font color = blue>平等关系</font></p>
+<ol type="1">
+<li>局域网的特性由三个要素决定 - 拓扑结构、传输介质、访问控制协议</li>
+<li>三种特殊的局域网拓扑
+<ol type="1">
+<li>以太网(逻辑拓扑是总线型、物理拓扑是星形)</li>
+<li>令牌环(逻辑拓扑是环形、物理拓扑是星形)</li>
+<li>FDDI(逻辑拓扑是环形、物理拓扑是双环)</li>
+</ol></li>
+</ol></li>
+<li><p>以太网的四种对应传输介质及使用情况</p>
+<ol type="1">
+<li>10BASE5</li>
+<li>10BASE2</li>
+<li>10BASE-T</li>
+<li>10BASE-F</li>
+<li>其中前两个是粗缆和细缆，T是双绞线、F是光纤</li>
+</ol></li>
+<li><p>mac地址的格式 -
+12个十六进制数表示(<font color= #0000ff>路由器若连接到两个网络上，则需要两个适配器与两个MAC地址</font>)</p></li>
+<li><p>以太网的mac组合帧 - <img
 src="https://tse2-mm.cn.bing.net/th/id/OIP-C.fGUr-fUJKX7UHE8RoGX1mgHaDA?w=341&amp;h=142&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.5&amp;pid=1.7&amp;rm=3"
 title="以太网mac帧示意图"
-alt="https://tse2-mm.cn.bing.net/th/id/OIP-C.fGUr-fUJKX7UHE8RoGX1mgHaDA?w=341&amp;h=142&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.5&amp;pid=1.7&amp;rm=3" /></li>
-<li>无线局域网的mac组合帧 - <img
+alt="https://tse2-mm.cn.bing.net/th/id/OIP-C.fGUr-fUJKX7UHE8RoGX1mgHaDA?w=341&amp;h=142&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.5&amp;pid=1.7&amp;rm=3" /><br />
+<font color = purple>其中46是因为以太网采用CSMA/CD协议，数据帧最短长度为64B，再减去首部和尾部的18字节</font></p></li>
+<li><p>几种高速以太网技术</p></li>
+<li><p>无线局域网的mac组合帧 - <img
 src="https://img-blog.csdnimg.cn/89cdf2d2763248c786a6707b4343071d.png"
 title="无线局域网mac帧示意图"
 alt="https://img-blog.csdnimg.cn/89cdf2d2763248c786a6707b4343071d.png" /><br />
 其中去往ap和来往ap的不同取值代表前三个地址的不同。<br />
 01为接收地址 = 目的地址；发送地址 = AP地址；源地址<br />
-10为接收地址 = AP地址；发送地址 = 源地址；目的地址</li>
-<li>通过虚拟局域网VLAN，可以将一个较大的局域网划分成较小的VLAN，每个VLAN是一个较小的<font color =#0000ff>广播域</font>
+10为接收地址 = AP地址；发送地址 = 源地址；目的地址</p></li>
+<li><p>通过虚拟局域网VLAN，可以将一个较大的局域网划分成较小的VLAN，每个VLAN是一个较小的<font color =#0000ff>广播域</font></p>
 <ol type="1">
+<li>实现方式</li>
 <li>基于接口实现</li>
 <li>基于IP地址实现</li>
-<li>基于MAC地址实现(可实现跨路由器连接多个局域网)</li>
+<li>基于MAC地址实现(<font color = blue>可实现跨路由器连接多个局域网</font>)</li>
 </ol></li>
+<li><p>VLAN在以太网帧中插入了一个4字节标识符，因此最大帧长<font color = green>由1518字节变为1522字节</font></p></li>
+<li><p>VLAN只是提供的一种服务，不是新的局域网</p></li>
+</ol>
+<h3 id="广域网">广域网</h3>
+<ol start="11" type="1">
 <li>PPP(点对点协议)相关知识
 <ol type="1">
 <li>三个组成部分 =
@@ -407,7 +447,8 @@ class="math display">$$cU=\frac{nT_D}{T_D+T_A+RTT}$$</span></li>
 总线传播时延x数据传输速率</font>，因此对于小于最短帧长的帧，需要在末尾补充</li>
 <li>截断二进制指数退避算法 <img
 src="https://img-blog.csdnimg.cn/f5f8ee9be8ca47d594ee75d9f63a826c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAaXVkaW9fY29vbA==,size_20,color_FFFFFF,t_70,g_se,x_16"
-title="截断二进制指数退避算法" alt="图片替代文本" /><br />
+title="截断二进制指数退避算法"
+alt="https://img-blog.csdnimg.cn/f5f8ee9be8ca47d594ee75d9f63a826c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAaXVkaW9fY29vbA==,size_20,color_FFFFFF,t_70,g_se,x_16" /><br />
 </li>
 </ol></li>
 <li>CSMA/CA协议中信道预约的方法相关计算公式
@@ -497,7 +538,7 @@ title="截断二进制指数退避算法" alt="图片替代文本" /><br />
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%B8%A7"><span class="nav-number">1.1.</span> <span class="nav-text">组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">1.3.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="nav-number">1.4.</span> <span class="nav-text">介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="nav-number">1.5.</span> <span class="nav-text">局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91"><span class="nav-number">1.6.</span> <span class="nav-text">广域网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -513,7 +554,7 @@ title="截断二进制指数退避算法" alt="图片替代文本" /><br />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
