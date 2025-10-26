@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"crcrznzn666.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="常用公式与二级结论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用公式与二级结论">
+<meta property="og:url" content="http://crcrznzn666.github.io/linear-algebra/%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%BB%93%E8%AE%BA/">
+<meta property="og:site_name" content="cr的知识库">
+<meta property="og:description" content="常用公式与二级结论">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-12T12:34:01.000Z">
+<meta property="article:modified_time" content="2025-10-24T00:45:16.951Z">
+<meta property="article:author" content="cr">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://crcrznzn666.github.io/linear-algebra/%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%BB%93%E8%AE%BA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>常用公式与二级结论 | cr的知识库</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">cr的知识库</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">考研知识点备忘录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-专业-计算机组成">
+
+    <a href="/categories/computer-organization/" rel="section"><i class="fa fa-microchip fa-fw"></i>专业-计算机组成</a>
+
+  </li>
+        <li class="menu-item menu-item-专业-数据结构">
+
+    <a href="/categories/data-structure/" rel="section"><i class="fa fa-database fa-fw"></i>专业-数据结构</a>
+
+  </li>
+        <li class="menu-item menu-item-专业-操作系统">
+
+    <a href="/categories/operating-system/" rel="section"><i class="fa fa-cogs fa-fw"></i>专业-操作系统</a>
+
+  </li>
+        <li class="menu-item menu-item-专业-计算机网络">
+
+    <a href="/categories/computer-network/" rel="section"><i class="fa fa-wifi fa-fw"></i>专业-计算机网络</a>
+
+  </li>
+        <li class="menu-item menu-item-数学-微积分">
+
+    <a href="/categories/calculus/" rel="section"><i class="fa fa-asterisk fa-fw"></i>数学-微积分</a>
+
+  </li>
+        <li class="menu-item menu-item-数学-线性代数">
+
+    <a href="/categories/linear-algebra/" rel="section"><i class="fa fa-superscript fa-fw"></i>数学-线性代数</a>
+
+  </li>
+        <li class="menu-item menu-item-数学-概率论">
+
+    <a href="/categories/probability/" rel="section"><i class="fa fa-random fa-fw"></i>数学-概率论</a>
+
+  </li>
+        <li class="menu-item menu-item-政治-马原">
+
+    <a href="/categories/marxism/" rel="section"><i class="fa fa-book fa-fw"></i>政治-马原</a>
+
+  </li>
+        <li class="menu-item menu-item-政治-毛概">
+
+    <a href="/categories/maos-thought/" rel="section"><i class="fa fa-book fa-fw"></i>政治-毛概</a>
+
+  </li>
+        <li class="menu-item menu-item-政治-习思">
+
+    <a href="/categories/xis-thought/" rel="section"><i class="fa fa-book fa-fw"></i>政治-习思</a>
+
+  </li>
+        <li class="menu-item menu-item-政治-近代史">
+
+    <a href="/categories/modern-history/" rel="section"><i class="fa fa-history fa-fw"></i>政治-近代史</a>
+
+  </li>
+        <li class="menu-item menu-item-政治-道德法制">
+
+    <a href="/categories/ethics-law/" rel="section"><i class="fa fa-gavel fa-fw"></i>政治-道德法制</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://crcrznzn666.github.io/linear-algebra/%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%BB%93%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ts1.tc.mm.bing.net/th/id/R-C.b871256906effa876a995532075c7fa7?rik=OJ1NonNJJzDeqA&riu=http%3a%2f%2fseogc.fp.ps.netease.com%2ffile%2f66cf26d211c07fb534b881c95y7fK41W05&ehk=FchZZaIR0%2bl594w3XT11zdxjrjbQiTPg0cBWQ4RDJJs%3d&risl=&pid=ImgRaw&r=0">
+      <meta itemprop="name" content="cr">
+      <meta itemprop="description" content="争取毕业前arcaea摘星">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cr的知识库">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常用公式与二级结论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-10-12 20:34:01" itemprop="dateCreated datePublished" datetime="2025-10-12T20:34:01+08:00">2025-10-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-24 08:45:16" itemprop="dateModified" datetime="2025-10-24T08:45:16+08:00">2025-10-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index"><span itemprop="name">linear-algebra</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>常用公式与二级结论 <span id="more"></span></p>
+<h2 id="行列式">行列式</h2>
+<ol type="1">
+<li>行列式的概念定义</li>
+<li>特殊行列式 - 对角、三角、范德蒙</li>
+<li>拉普拉斯定理</li>
+<li>行列式的计算 - 箭型、爪型、递推法、加边法</li>
+<li>克拉默法则的定义及解题</li>
+<li><font color="red">讨论|A|=0的情况</font>
+<ol type="1">
+<li>关于A的秩的表达 - 至少有r阶子式不为0，且A中任意r阶以上子式全为0</li>
+<li>秩小于n</li>
+<li>Ax=0有n-r个解</li>
+</ol></li>
+<li><font color="red">乘积的情况</font>
+<ol type="1">
+<li>AB=0
+<ol type="1">
+<li>B的列向量都是AX=0的解</li>
+<li>r(A)+r(B) &lt;= n</li>
+</ol></li>
+<li>r(AB) = min[r(A),r(B)]</li>
+<li>r(A+B) &lt;= r(A) + r(B)</li>
+</ol></li>
+<li>证明行列式为0的思路
+<ol type="1">
+<li>秩小于n</li>
+<li>Ax=0有非零解</li>
+<li>反证法</li>
+<li>所有特征值乘积</li>
+</ol></li>
+</ol>
+<h2 id="矩阵">矩阵</h2>
+<ol type="1">
+<li>概念</li>
+<li>特殊矩阵 -
+单位矩阵、转置矩阵、对称矩阵、正交矩阵、伴随矩阵、数量矩阵</li>
+<li>矩阵的加减乘除运算</li>
+<li>伴随矩阵常用公式
+<ol type="1">
+<li>AB伴随开括号交换次序</li>
+<li>取逆与转秩均可交换括号</li>
+<li><font color = red>A ∗ =∣A∣⋅A ^ −1</font></li>
+<li>伴随矩阵的秩
+<ol type="1">
+<li>原矩阵的秩为n - n</li>
+<li>原矩阵的秩为n-1 - 1</li>
+<li>其他 - 0</li>
+</ol></li>
+</ol></li>
+<li>可逆矩阵的运算公式
+<ol type="1">
+<li>AB取逆交换次序</li>
+<li>转置与n方均可交换秩序</li>
+</ol></li>
+<li>矩阵的秩
+<ol type="1">
+<li>行秩等于列秩等于秩</li>
+<li>A、A转置、AA转置的秩相同</li>
+<li>乘以一个可逆矩阵不改变原矩阵的秩</li>
+<li>同型矩阵秩相减&lt;相加减的秩&lt;秩相加</li>
+<li>同型矩阵秩相同，相当于两矩阵等价</li>
+</ol></li>
+<li>初等矩阵
+<ol type="1">
+<li><font color = red>左乘初等矩阵等于行变化</li>
+<li>右乘初等矩阵等于列变化</font></li>
+</ol></li>
+</ol>
+<h2 id="向量">向量</h2>
+<ol type="1">
+<li>向量及其运算</li>
+<li>向量组的线性相关性和线性表示</li>
+<li>列向量线性无关等价于AX零解、行向量线性无关等价于ATX零解</li>
+</ol>
+<h2 id="线性方程组">线性方程组</h2>
+<ol type="1">
+<li>线性方程组的表达式</li>
+<li>线性方程组的解、童姐。特解、基础解系</li>
+<li>两个方程组有公共解或同解的情况
+<ol type="1">
+<li><span class="math inline"><em>A</em><em>x</em> = <em>β</em></span>
+有唯一解 <span
+class="math inline"> ⇔ <em>r</em>(<em>A</em>) = <em>r</em>(<em>A</em>, <em>β</em>) = <em>n</em></span>（其中<span
+class="math inline"><em>n</em></span>为<span
+class="math inline"><em>A</em></span>的列数）</li>
+<li><span class="math inline"><em>A</em><em>x</em> = <em>β</em></span>
+有无穷多解 <span
+class="math inline"> ⇔ <em>r</em>(<em>A</em>) = <em>r</em>(<em>A</em>, <em>β</em>) &lt; <em>n</em></span>（其中<span
+class="math inline"><em>n</em></span>为<span
+class="math inline"><em>A</em></span>的列数）</li>
+<li><span class="math inline"><em>A</em><em>x</em> = <em>β</em></span>
+无解 <span
+class="math inline"> ⇔ <em>r</em>(<em>A</em>) ≠ <em>r</em>(<em>A</em>, <em>β</em>)</span></li>
+<li><span
+class="math inline"><em>r</em>(<em>A</em>) ≤ <em>r</em>(<em>A</em>, <em>B</em>)</span></li>
+<li><span
+class="math inline"><em>r</em>(<em>A</em><em>B</em>) ≤ <em>r</em>(<em>B</em>)</span>，且
+<span
+class="math inline"><em>r</em>(<em>A</em><em>B</em>) ≤ <em>r</em>(<em>A</em>)</span></li>
+<li><span
+class="math inline"><em>r</em>(<em>A</em>) = <em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>) = <em>r</em>(<em>A</em><sup><em>T</em></sup>) = <em>r</em>(<em>A</em><em>A</em><sup><em>T</em></sup>)</span></li>
+<li>方程组 <span
+class="math inline"><em>A</em><sup><em>T</em></sup><em>A</em><em>x</em> = <em>A</em><sup><em>T</em></sup><em>β</em></span>
+一定有解，其秩的推导：<span
+class="math inline"><em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>) ≤ <em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>, <em>A</em><sup><em>T</em></sup><em>β</em>) = <em>r</em>(<em>A</em><sup><em>T</em></sup>(<em>A</em>, <em>β</em>)) ≤ <em>r</em>(<em>A</em><sup><em>T</em></sup>)</span>，结合<span
+class="math inline"><em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>) = <em>r</em>(<em>A</em><sup><em>T</em></sup>)</span>，故<span
+class="math inline"><em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>) = <em>r</em>(<em>A</em><sup><em>T</em></sup><em>A</em>, <em>A</em><sup><em>T</em></sup><em>β</em>)</span>，因此方程组有解。</li>
+</ol></li>
+<li>由解求原方程的特殊题型</li>
+</ol>
+<h2 id="相似矩阵">相似矩阵</h2>
+<ol type="1">
+<li>用|xE-A|求特征值，再用特征值解方程求出特征向量</li>
+<li><font color="red">特征值的性质</font>
+<ol type="1">
+<li>迹等于特征值之和</li>
+<li>特征值之积等于A的行列式</li>
+</ol></li>
+<li>特征向量的性质
+<ol type="1">
+<li>不同特征值对应的特征向量线性无关</li>
+<li>不同特征值对应的特征向量之和不是A的特征向量</li>
+</ol></li>
+<li>矩阵相似与对角矩阵的条件
+<ol type="1">
+<li>n个线性无关特征向量</li>
+<li>k重特征值对应k个线性无关的特征向量</li>
+<li></li>
+</ol></li>
+<li>抽象矩阵的相似问题</li>
+</ol>
+<h2 id="实对称矩阵">实对称矩阵</h2>
+<ol type="1">
+<li>性质
+<ol type="1">
+<li>必相似与对角矩阵</li>
+<li>可用正交矩阵相似对角化</li>
+<li>不同特征值对应的特征向量两两正交</li>
+</ol></li>
+<li>相似对角化的步骤
+<ol type="1">
+<li>求特征值</li>
+<li>求每个特征值对应的特征向量</li>
+<li>单重特征值只需单位化；多重特征值需要进行施密特正交化，再单位化</li>
+<li><span
+class="math inline"><em>Q</em><sup><em>T</em></sup><em>A</em><em>Q</em> = <em>Q</em><sup>−1</sup><em>A</em><em>Q</em> = <em>Λ</em></span></li>
+</ol></li>
+<li>施密特正交化的步骤 <span class="math display">$$
+\begin{cases}
+\boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1 \\
+\boldsymbol{\beta}_i = \boldsymbol{\alpha}_i - \sum_{j=1}^{i-1}
+\frac{(\boldsymbol{\alpha}_i,
+\boldsymbol{\beta}_j)}{(\boldsymbol{\beta}_j, \boldsymbol{\beta}_j)}
+\boldsymbol{\beta}_j \quad (i=2,3,\dots,k)
+\end{cases}
+  $$</span>其中括号表示内积</li>
+</ol>
+<h2 id="二次型">二次型</h2>
+<ol type="1">
+<li>二次型的概念
+<ol type="1">
+<li>表示</li>
+<li>标准形</li>
+<li>标准化(实对称矩阵可通过正交矩阵标准化)</li>
+<li>惯性指数 -</li>
+<li>惯性定理 - 可逆坐标变化不改变正度惯性指数</li>
+<li>规范形</li>
+<li><span
+class="math display">∃ <em>n</em>阶可逆矩阵 <strong>P</strong>,  <strong>P</strong><sup><em>T</em></sup><strong>A</strong><strong>P</strong> = <strong>B</strong></span></li>
+<li>实对称矩阵形似是合同的充分不必要条件</li>
+</ol></li>
+<li>化为标准形的方法
+<ol type="1">
+<li>正交变换</li>
+<li>配方法</li>
+</ol></li>
+<li>正定二次型与正定矩阵
+<ol type="1">
+<li>概念，左乘列右乘行始终大于0、</li>
+<li>判定
+<ol type="1">
+<li>二次型正定<span class="math inline">⇔</span>特征值全大于0</li>
+<li>二次型正定<span class="math inline">⇔</span>顺序主子式全大于0</li>
+<li>实对称矩阵正定<span class="math inline">⇔</span>合同于单位矩阵</li>
+<li>实对称矩阵正定<span
+class="math inline">⇔</span>正惯性指数=n=矩阵的秩</li>
+<li>实对称矩阵正定<span
+class="math inline">⇔</span>存在可逆矩阵，使得<span
+class="math inline"><em>A</em> = <em>P</em><sup><em>T</em></sup><em>P</em></span></li>
+</ol></li>
+</ol></li>
+</ol>
+<h2 id="三级结论">三级结论</h2>
+<ol type="1">
+<li>A^2=A
+<ol type="1">
+<li>r(A)+r(E-A)=n</li>
+<li>所有特征值只能为0或1且一定可相似对角化</li>
+<li>任意高次幂恒等于A</li>
+<li>E-A的列向量都为Ax=0的解</li>
+</ol></li>
+<li>A的秩与ATA的秩相等
+<ol type="1">
+<li>等价于两个线性方程组同解</li>
+<li>AX必然是ATA的解</li>
+<li>右边左乘x的转置凑两项</li>
+</ol></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+<th>( )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>特征值</td>
+<td>( )</td>
+<td>( ^n )</td>
+<td>( + k )</td>
+<td>( f() )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+</tr>
+<tr>
+<td>特征向量</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>( )</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>( A )</th>
+<th>( A^*  (</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>特征值</td>
+<td>( )</td>
+<td>( )</td>
+</tr>
+<tr>
+<td>特征向量</td>
+<td>( )</td>
+<td>( )</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/probability/%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%BB%93%E8%AE%BA/" rel="prev" title="常用公式与二级结论">
+      <i class="fa fa-chevron-left"></i> 常用公式与二级结论
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">2.</span> <span class="nav-text">矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">线性方程组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5"><span class="nav-number">5.</span> <span class="nav-text">相似矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5"><span class="nav-number">6.</span> <span class="nav-text">实对称矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">二次型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E7%BB%93%E8%AE%BA"><span class="nav-number">8.</span> <span class="nav-text">三级结论</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cr"
+      src="https://ts1.tc.mm.bing.net/th/id/R-C.b871256906effa876a995532075c7fa7?rik=OJ1NonNJJzDeqA&riu=http%3a%2f%2fseogc.fp.ps.netease.com%2ffile%2f66cf26d211c07fb534b881c95y7fK41W05&ehk=FchZZaIR0%2bl594w3XT11zdxjrjbQiTPg0cBWQ4RDJJs%3d&risl=&pid=ImgRaw&r=0">
+  <p class="site-author-name" itemprop="name">cr</p>
+  <div class="site-description" itemprop="description">争取毕业前arcaea摘星</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cr</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
